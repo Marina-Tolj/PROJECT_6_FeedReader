@@ -101,10 +101,9 @@ $(function() {
         /* There is at least a single .entry element within the .feed container.
          */
 
-        it('has at least a single entry', function(done) {
+        it('has at least a single entry', function() {
             var entries = $('.feed').find('.entry');
             expect(entries.length >= 1).toBeTruthy();
-            done();
         });
 
     });
@@ -124,13 +123,13 @@ $(function() {
              *to the feed title
              */
             loadFeed(0, function() {
-                first =  $('.header-title').text();
+                first =  $('.feed').html();
 
                 /*Load the second feed and set the value of variable 
                  *change to the feed title
                  */
                 loadFeed(1, function(){
-                    change = $('.header-title').text();
+                    change = $('.feed').html();
                     done();
                 });
             });
